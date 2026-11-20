@@ -1,0 +1,1 @@
+"""Paths, permissions, and autosave."""

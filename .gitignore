@@ -1,0 +1,19 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+dist/
+build/pyinstaller-work/
+*.dmg
+.DS_Store
+
+# Speech models are downloaded by build/download_models.sh (hundreds of MB).
+models/asr/
+models/vad/
+models/speaker/
+models/punct/
+models/manifest.json
+models/**/*.onnx
+models/**/*.tar.bz2
+models/**/*.bz2

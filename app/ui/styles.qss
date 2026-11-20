@@ -1,0 +1,59 @@
+QWidget#sidebar {
+    border-right: 1px solid palette(mid);
+}
+
+QPushButton#startButton {
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    min-height: 40px;
+    padding: 6px 8px;
+}
+
+QPushButton#startButton[phase="idle"],
+QPushButton#startButton[phase="waiting"] {
+    background-color: #9E9E9E;
+    color: white;
+}
+
+QPushButton#startButton[phase="recording"] {
+    background-color: #2E7D32;
+    color: white;
+}
+
+QPushButton#startButton[phase="paused"] {
+    background-color: #F9A825;
+    color: #1A1A1A;
+}
+
+QPushButton#pauseButton,
+QPushButton#endButton,
+QPushButton#settingsButton {
+    background-color: palette(button);
+    color: palette(button-text);
+    border: 1px solid palette(mid);
+    border-radius: 8px;
+    min-height: 36px;
+    padding: 4px 8px;
+}
+
+QPushButton#pauseButton:disabled,
+QPushButton#endButton:disabled {
+    color: #9E9E9E;
+    background-color: palette(window);
+}
+
+QLabel#partialLabel {
+    color: #757575;
+    font-style: italic;
+    padding: 8px 12px;
+}
+
+QLabel#clockLabel {
+    font-weight: 600;
+}
+
+QListView#transcriptList {
+    border: none;
+    background: transparent;
+}
