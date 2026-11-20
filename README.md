@@ -40,4 +40,4 @@ bash build/make_dmg.sh
 
 产物是 `dist/会议纪要.dmg`。双击后把「会议纪要」拖进「应用程序」。第一次请右键 → 打开；若提示已损坏，执行 `xattr -cr /Applications/会议纪要.app`。说明也在 dmg 里的「首次打开说明.txt」。
 
-GitHub Actions（`.github/workflows/macos-dmg.yml`）在 `macos-14`（arm64）上同样构建，上传 artifact `meeting-minutes-dmg`。推送 `v*` tag 时还会把 dmg 挂到对应的 GitHub Release。也可以手动 `workflow_dispatch`。
+GitHub Actions（`.github/workflows/macos-dmg.yml`）在 Apple Silicon 上同样构建，上传 artifact `meeting-minutes-dmg`。`macos-14` 的托管 runner 已于 2026-11-02 下线，工作流使用仍为 arm64 的 `macos-15`。推送 `v*` tag 时还会把 dmg 挂到对应的 GitHub Release。也可以手动 `workflow_dispatch`。

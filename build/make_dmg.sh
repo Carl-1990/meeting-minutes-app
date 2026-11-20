@@ -9,7 +9,7 @@ export LANG="${LANG:-en_US.UTF-8}"
 export LC_ALL="${LC_ALL:-en_US.UTF-8}"
 
 if [[ "$(uname -s)" != "Darwin" ]]; then
-  echo "会议纪要.dmg 只能在 macOS 上构建。请使用 GitHub Actions 的 macos-14 任务，或在 Apple Silicon Mac 上运行本脚本。" >&2
+  echo "会议纪要.dmg 只能在 macOS 上构建。请使用 GitHub Actions 的 macos-15（arm64）任务，或在 Apple Silicon Mac 上运行本脚本。" >&2
   exit 1
 fi
 if [[ "$(uname -m)" != "arm64" ]]; then

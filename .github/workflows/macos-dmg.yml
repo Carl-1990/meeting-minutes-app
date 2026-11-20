@@ -37,7 +37,10 @@ jobs:
 
   dmg:
     name: Build arm64 DMG
-    runs-on: macos-14
+    # macos-14 (arm64) was retired on 2026-11-02. macos-15 is the
+    # GitHub-hosted Apple Silicon image that still produces an arm64 app
+    # whose minimum system version is macOS 12.
+    runs-on: macos-15
     timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
