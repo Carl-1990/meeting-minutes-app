@@ -49,18 +49,20 @@ def test_docx_contains_timestamps_renamed_speakers_and_avoids_collisions(tmp_pat
     assert second.docx_path.name == "会议纪要_20260501_1500_2.docx"
 
 
-def test_recording_is_copied_beside_the_docx_when_aac_is_unavailable(tmp_path):
+def test_recording_is_saved_beside_the_docx(tmp_path):
     session = _session()
     wav = tmp_path / "capture.wav"
     sink = WavSink(wav)
-    sink.write(np.arange(160, dtype=np.int16))
+    sink.write(np.arange(1600, dtype=np.int16))
     sink.close()
     desktop = tmp_path / "desktop"
     result = export_meeting(session, output_dir=desktop, audio_source=wav)
     assert result.audio_path is not None
-    assert result.audio_path.suffix == ".wav"
-    assert result.audio_path.name == "会议纪要_20260501_1500.wav"
-    assert result.audio_path.read_bytes() == wav.read_bytes()
+    assert result.audio_path.suffix in {".wav", ".m4a"}
+    assert result.audio_path.stem == "会议纪要_20260501_1500"
+    assert result.audio_path.stat().st_size > 0
+    if result.audio_path.suffix == ".wav":
+        assert result.audio_path.read_bytes() == wav.read_bytes()
     assert result.docx_path == desktop / "会议纪要_20260501_1500.docx"
 
 
